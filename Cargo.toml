@@ -18,6 +18,3 @@ blake3 = { version = "1.0", default-features = false }
 env_logger = { version = "0.9", default-features = false }
 generic_singleton = "0.4.1"
 atomic_refcell = "0.1.9"
-
-[patch.crates-io]
-anymap = "=0.12.1"
