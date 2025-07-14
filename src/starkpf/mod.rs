@@ -137,7 +137,7 @@ const HTR: [u64;HASH_STATE_WIDTH] = [677417, 611466, 4336421, 2300803, 3046594, 
 
 // DILITHIUM VERIFICATION
 // ================================================================================================
-pub(crate) fn prove(
+pub fn prove(
     z: [[BaseElement; N]; K],
     w: [[BaseElement; N]; K],
     qw: [[BaseElement; N]; K],
@@ -186,12 +186,12 @@ pub(crate) fn prove(
     prover.prove(trace).unwrap()
 }
 
-pub(crate) fn verify(proof: StarkProof, m: [BaseElement; HASH_DIGEST_WIDTH]) -> Result<(), VerifierError> {
+pub fn verify(proof: StarkProof, m: [BaseElement; HASH_DIGEST_WIDTH]) -> Result<(), VerifierError> {
     let pub_inputs = PublicInputs{m};
     winterfell::verify::<ThinDilAir>(proof, pub_inputs)
 }
 
-pub(crate) fn verify_with_wrong_inputs(proof: StarkProof, m: [BaseElement; HASH_DIGEST_WIDTH]) -> Result<(), VerifierError> {
+pub fn verify_with_wrong_inputs(proof: StarkProof, m: [BaseElement; HASH_DIGEST_WIDTH]) -> Result<(), VerifierError> {
     let pub_inputs = PublicInputs{m};
     winterfell::verify::<ThinDilAir>(proof, pub_inputs)
 }
